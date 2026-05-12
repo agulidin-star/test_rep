@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:active {
+            background-color: #004085;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать в приложение</h1>
+    <div class="button-container">
+        <button id="createProject">Создать новый проект</button>
+        <button id="openProject">Открыть существующий проект</button>
+        <button id="deleteProject">Удалить проект</button>
+    </div>
+
+    <script>
+        document.getElementById('createProject').addEventListener('click', function() {
+            alert('Создать новый проект');
+            // Здесь будет логика создания проекта
+        });
+
+        document.getElementById('openProject').addEventListener('click', function() {
+            alert('Открыть существующий проект');
+            // Здесь будет логика открытия проекта
+        });
+
+        document.getElementById('deleteProject').addEventListener('click', function() {
+            alert('Удалить проект');
+            // Здесь будет логика удаления проекта
+        });
+    </script>
+</body>
+</html>
