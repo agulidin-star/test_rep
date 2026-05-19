@@ -39,8 +39,7 @@ class ListViewModel(private val repository: TaskRepository) : ViewModel() {
             filtered = filtered.filter { it.status == status }
         }
         if (sortByPriority) {
-            filtered = filtered.sortedBy { it.priority }
-                .thenBy { it.dueDateTimeMillis }
+            filtered = filtered.sortedWith(compareBy<TaskEntity> { it.priority }.thenBy { it.dueDateTimeMillis })
         } else {
             filtered = filtered.sortedBy { it.dueDateTimeMillis }
         }

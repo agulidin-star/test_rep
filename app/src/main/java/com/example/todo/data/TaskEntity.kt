@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 
 @Entity(tableName = "tasks")
+@TypeConverters(Converters::class)
 data class TaskEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val title: String,
@@ -13,7 +14,6 @@ data class TaskEntity(
     val status: TaskStatus,
     val priority: TaskPriority,
     val remindersEnabled: Boolean,
-    @TypeConverters(Converters::class)
     val reminderOffsetsMinutes: List<Int>,
     val createdAtMillis: Long,
     val updatedAtMillis: Long
