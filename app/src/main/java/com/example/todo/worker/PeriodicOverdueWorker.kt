@@ -4,37 +4,32 @@ import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.todo.data.TaskDatabase
-import com.example.todo.data.TaskEntity
 import com.example.todo.data.TaskStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class PeriodicOverdueWorker(appContext: Context, workerParams: WorkerParameters) :
-    CoroutineWorker(appContext, workerParams) {
+class PeriodicOverdueWorker(
+    appContext: Context,
+    workerParams: WorkerParameters
+) : CoroutineWorker(appContext, workerParams) {
 
-    override suspend fun doWork(): Result {
-        val context = applicationContext
-        val now = System.currentTimeMillis()
-        val db = TaskDatabase.getInstance(context)
-        val taskDao = db.taskDao()
+    override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
+        try {
+            val db = TaskDatabase.getInstance(applicationContext)
+            val dao = db.taskDao()
+            val now = System.currentTimeMillis()
 
-        // Mark overdue tasks
-        val updatedCount = taskDao.markOverdueTasks(now)
-        // Update the widget after marking overdue
-        updateWidget(context)
+            // Mark overdue tasks
+            dao.markOverdueTasks(now)
 
-        return Result.success()
-    }
-
-    private fun updateWidget(context: Context) {
-        // We'll use the same WidgetUpdateWorker as in the repository
-        val workManager = androidx.work.WorkManager.getInstance(context)
-        val updateRequest = androidx.work.OneTimeWorkRequestBuilder<WidgetUpdateWorker>()
-            .build()
-        workManager.enqueueUniqueWork(
-            "widget_update",
-            androidx.work.ExistingWorkPolicy.REPLACE,
-            updateRequest
-        )
+            // Update widget
+            androidx.glance.appwidget.GlanceAppWidget.updateAll(
+                applicationContext,
+                com.example.todo.widget.TodoWidget::class.java
+            )
+            Result.success()
+        } catch (e: Exception) {
+            Result.failure()
+        }
     }
 }

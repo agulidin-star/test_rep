@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Todo</string>
+    <string name="all">Все</string>
+    <string name="in_progress">В работе</string>
+    <string name="overdue">Просрочено</string>
+    <string name="done">Выполнено</string>
+    <string name="sort_by_deadline">По дедлайну</string>
+    <string name="sort_by_priority">По приоритету</string>
+    <string name="add_task">Добавить задачу</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="new_task">Новая задача</string>
+    <string name="edit_task">Редактировать задачу</string>
+    <string name="title">Название</string>
+    <string name="description">Описание</string>
+    <string name="due_date_time">Дата и время дедлайна</string>
+    <string name="priority">Приоритет</string>
+    <string name="reminders">Напоминания</string>
+    <string name="reminders_enabled">Включить напоминания</string>
+    <string name="notification_permission_title">Разрешение на уведомления</string>
+    <string name="notification_permission_message">Для напоминаний о дедлайнах необходимы уведомления</string>
+    <string name="mark_done_action">Отметить выполнено</string>
+    <string name="deadline_passed">Дедлайн прошёл</string>
+    <string name="minutes_to_deadline">До дедлайна: %d мин</string>
+    <string name="confirm_delete">Удалить задачу?</string>
+    <string name="select_date_time">Выберите дату и время</string>
+    <string name="cancel">Отмена</string>
+    <string name="ok">OK</string>
+    <string name="offset_hours">%d ч</string>
+    <string name="widget_title">To-Do</string>
+    <string name="add_reminder_offset">Добавить нейро</string>
+    <string name="remove_reminder_offset">Удалить</string>
+    <string name="reminder_at">за %d мин до дедлайна</string>
+</resources>

@@ -29,7 +29,7 @@ interface TaskDao {
     @Query("SELECT * FROM tasks WHERE status = :status ORDER BY dueDateTimeMillis ASC")
     fun getByStatus(status: TaskStatus): Flow<List<TaskEntity>>
 
-    // We can also have a query to update overdue tasks periodically
-    @Query("UPDATE tasks SET status = ${TaskStatus.OVERDUE.ordinal} WHERE dueDateTimeMillis < :now AND status != ${TaskStatus.DONE.ordinal}")
+    // Mark overdue tasks: set status to OVERDUE when dueDateTime passed and status is not DONE
+    @Query("UPDATE tasks SET status = 'OVERDUE' WHERE dueDateTimeMillis < :now AND status != 'DONE'")
     fun markOverdueTasks(now: Long): Int
 }
