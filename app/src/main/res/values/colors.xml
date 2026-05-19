@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="steel_primary">#FF5A6D7E</color>
+    <color name="steel_secondary">#FF8A9BA8</color>
+    <color name="steel_tertiary">#FF6B8294</color>
+    <color name="steel_background">#FFE8EDF2</color>
+    <color name="steel_surface">#FFF4F7FA</color>
+    <color name="steel_error">#FFB3261E</color>
+    <color name="steel_outline">#FF7A8E9E</color>
+    <color name="status_in_progress">#FF5A6D7E</color>
+    <color name="status_overdue">#FFB3261E</color>
+    <color name="status_done">#FF2E7D52</color>
+    <color name="priority_high">#FFC62828</color>
+    <color name="priority_medium">#FFF57C00</color>
+    <color name="priority_low">#FF2E7D52</color>
+</resources>
